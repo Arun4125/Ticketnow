@@ -1,0 +1,614 @@
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #efe8e8;
+    color: #fff;
+}
+
+
+body.index-page {
+    background: #ffffff;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.container h1 {
+    margin-bottom: 30px;
+    font-size: 36px;
+    color: black;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-card {
+    background: #f1f1f1;
+    color: #000;
+    border-radius: 16px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.movie-card h3 {
+    margin: 12px 0;
+    font-size: 18px;
+}
+
+.book-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    background:#070d66;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.book-btn:hover {
+    background: #dd2476;
+}
+
+
+.theatre-page {
+    background: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+#theatreList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.theatre-card {
+    background: #070d66;
+    color: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.theatre-card:hover {
+    background: #dd2476;
+}
+
+.theatre-card h3 {
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
+.theatre-card p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+#screeningsContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto 0;
+}
+
+.screening-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #070d66;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 14px 35px rgba(0,0,0,0.3);
+    font-size: 18px;
+}
+
+.screening-table th,
+.screening-table td {
+    padding: 18px 22px;
+    text-align: center;
+}
+
+.screening-table th {
+    background: white;
+    color: black;
+    font-size: 18px;
+    letter-spacing: 0.6px;
+}
+
+.screening-table tr {
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.screening-table tr:hover {
+    background: #dd2476;
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+body.seat-page {
+    background: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 30px 10px;
+    min-height: 100vh;
+}
+
+h2 {
+    font-size: 28px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+
+
+#seatGrid {
+    display: grid;
+   
+    gap: 8px;
+    justify-content: center;
+    margin: 0 auto 25px auto;
+}
+
+
+.row-label,
+.col-label {
+    width: 32px;
+    height: 32px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    line-height: 32px;
+    color: #333;
+}
+
+.empty-cell {
+    visibility: hidden;
+}
+
+
+.seat {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    line-height: 32px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.free {
+    background-color: #2ecc71;
+}
+
+.booked {
+    background-color: #e74c3c;
+    cursor: not-allowed;
+}
+
+.selected {
+    background-color: #f1c40f;
+    transform: translateY(-4px);
+}
+
+
+.seat.free:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+
+.info {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.info button {
+    margin-top: 10px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: none;
+    background: #070d66;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.info button:hover {
+    background: #dd2476;
+}
+
+
+.name-form {
+    margin-top: 20px;
+    padding: 20px;
+    background:  rgb(238, 233, 233);
+    color: black;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.name-form.hidden { display: none; }
+
+.name-form input {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+.name-form .form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.name-form button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    background:#070d66 ;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.name-form button:hover {
+    background: #dd2476;
+}
+
+.warning {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.hidden { display: none; }
+
+
+.seat-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.legend-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.legend-color {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 1px solid #999;
+}
+
+.legend-color.green { background: #2ecc71; }
+.legend-color.red { background: #e74c3c; }
+.legend-color.yellow { background: #f1c40f; }
+
+#seatGrid {
+    display: grid;
+    grid-template-columns: repeat(26, auto); 
+    gap: 8px;
+    justify-content: center;
+}
+
+.screen {
+  width: 60%;
+  margin: 20px auto 40px;
+  padding: 15px 0;
+  text-align: center;
+  color: white;
+  background: linear-gradient(to bottom, #ccc, #888);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+
+  transform: perspective(400px) rotateX(-25deg);
+
+  
+  box-shadow: 0 0 25px rgba(255,255,255,0.8), 
+              0 0 50px rgba(255,255,255,0.4);
+}
+
+/* -------- OTP SECTION -------- */
+
+.name-form input[type="tel"],
+.name-form input[type="text"],
+.name-form input[type="number"] {
+    padding: 10px;
+    width: 85%;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.otp-row {
+    display: flex;
+    gap: 10px;
+    width: 85%;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.otp-row input {
+    flex: 1;
+}
+
+.otp-row button {
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: none;
+    background: #070d66;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.otp-row button:hover {
+    background: #dd2476;
+}
+
+.verify-btn {
+    margin-top: 10px;
+    background: #e1e7e3;
+}
+
+.verify-btn:hover {
+    background: #e7efea;
+}
+
+.submit-btn {
+    margin-top: 15px;
+    background: #2980b9;
+}
+
+.submit-btn:hover {
+    background: #1f6391;
+}
+.form-message {
+    color: rgb(15, 15, 15);  /* green for success */
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.form-message.hidden { display: none; }
+
+
+.otp-message {
+    position: absolute;
+    bottom: 10px;          /* 10px from bottom of the form */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(15, 15, 15); /* green for success */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(11, 11, 11, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.otp-message.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+body.summary-page {
+    background: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 50px 10px;
+}
+
+.ticket {
+    background: white;
+    color: black;
+    padding: 30px 20px;
+    border-radius: 16px;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(221, 188, 160, 0.4);
+    margin-top: 50px;
+}
+
+.ticket h1 {
+    color: black;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+.ticket p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.ticket button {
+    margin-top: 25px;
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    background: #070d66;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ticket button:hover {
+    background: #dd2476;
+}
+
+
+.success-tick {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:rgb(25, 7, 126);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    animation: scaleIn 0.5s forwards;
+    z-index: 1000;
+}
+
+.success-tick .checkmark {
+    width: 50px;
+    height: 50px;
+    border-left: 5px solid white;
+    border-bottom: 5px solid white;
+    transform: rotate(-45deg);
+    margin: 0 auto 15px auto;
+    animation: drawCheck 0.5s forwards;
+}
+
+@keyframes scaleIn {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes drawCheck {
+    0% { width: 0; height: 0; }
+    100% { width: 50px; height: 50px; }
+}
+
+
+.download-btn {
+    background: #a2a29a;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.download-btn:hover {
+    background: #b5b4b3;
+}
+
+
+@media (max-width: 1024px) {
+    #theatreList {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .screening-table {
+        font-size: 16px;
+    }
+    .screening-table th,
+    .screening-table td {
+        padding: 14px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    #theatreList { grid-template-columns: 1fr; }
+    .theatre-card { padding: 16px; }
+    .theatre-card h3 { font-size: 16px; }
+    .theatre-card p { font-size: 13px; }
+    #screeningsContainer { margin-top: 30px; }
+    .screening-table { font-size: 14px; }
+    .screening-table th,
+    .screening-table td { padding: 10px 12px; }
+    #seatGrid { grid-template-columns: repeat(auto-fit, minmax(28px, 1fr)); }
+    .seat { width: 28px; height: 28px; line-height: 28px; font-size: 10px; }
+}
+
+@media (max-width: 480px) {
+    .screening-table { font-size: 13px; }
+    .screening-table th,
+    .screening-table td { padding: 8px 10px; }
+    #seatGrid { grid-template-columns: repeat(auto-fit, minmax(24px, 1fr)); }
+    .seat { width: 24px; height: 24px; line-height: 24px; font-size: 9px; }
+    .ticket { width: 90%; padding: 20px 15px; margin-top: 30px; }
+    .ticket h1 { font-size: 24px; }
+    .ticket p { font-size: 14px; }
+    .ticket button { padding: 10px 18px; font-size: 14px; }
+}
+
+@media (max-width: 360px) {
+    #seatGrid { grid-template-columns: repeat(auto-fit, minmax(20px, 1fr)); gap: 4px; }
+    .seat { width: 20px; height: 20px; line-height: 20px; font-size: 8px; }
+}
