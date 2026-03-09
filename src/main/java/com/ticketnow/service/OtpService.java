@@ -27,7 +27,7 @@ public class OtpService {
         entity.setVerified(false);
 
         otpRepository.save(entity);
-        //smsService.sendOtp(phone, otp);
+        smsService.sendOtp(phone, otp);
         System.out.println("OTP for " + phone + " is: " + otp);
     }
 
